@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import './counter.css';
 
+function App() {
+  const [list, setList] = useState(["Cake", "Apple", "Cookies"]);
 
-function Counter() {
-    const [count, setCount] = useState(0);
+  function addToList() {
+    // You can implement the logic to add new items here.
+  }
 
-    const increaseCount = () => {
-        setCount(count + 1);
-    };
-
-    const decreaseCount = () => {
-        setCount(count - 1);
-    };
-
-    return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column' }}>
-            <h1>Counter</h1>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <button onClick={decreaseCount} style={{ fontSize: '24px', padding: '10px', marginRight: '10px' }}>-</button>
-                <div style={{ fontSize: '24px', margin: '0 10px', width: '50px', textAlign: 'center' }}>{count}</div>
-                <button onClick={increaseCount} style={{ fontSize: '24px', padding: '10px', marginLeft: '10px' }}>+</button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="App">
+      <h3 style={{ color: 'white' }}>Shopping List 📑</h3>
+      <div className="form">
+        <input type="text" />
+        <button onClick={addToList}>+</button>
+      </div>
+      <ol>
+        {list.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ol>
+    </div>
+  );
 }
 
-export default Counter;
+export default App;
